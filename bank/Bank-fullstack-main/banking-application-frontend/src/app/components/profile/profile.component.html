@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+
+<div class="profile-container" *ngIf="!loading && account">
+  <h2>My Profile</h2>
+
+  <div class="profile-card">
+
+    <div class="row">
+      <span class="label">Account Number</span>
+      <span class="value">{{ account.accountNumber }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Username</span>
+      <span class="value">{{ account.username }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Full Name</span>
+      <span class="value">{{ account.fullName }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Email</span>
+      <span class="value">{{ account.email }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Date of Birth</span>
+      <span class="value">{{ account.dateOfBirth }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Address</span>
+      <span class="value">{{ account.residentialAddress }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">ID Type</span>
+      <span class="value">{{ account.idType }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">ID Number</span>
+      <span class="value">{{ account.idNo }}</span>
+    </div>
+
+    <div class="row balance">
+      <span class="label">Current Balance</span>
+      <span class="value">₹ {{ account.balance }}</span>
+    </div>
+
+  </div>
+</div>
+
+<div class="loading" *ngIf="loading">
+  Loading profile...
+</div>

@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="form-container">
+  <h2>Withdraw Money</h2>
+  <p class="subtitle">Withdraw funds from your account</p>
+
+  <form [formGroup]="withdrawForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Amount</label>
+      <input
+        type="number"
+        formControlName="amount"
+        placeholder="Enter amount"
+      />
+      <small *ngIf="withdrawForm.get('amount')?.touched && withdrawForm.get('amount')?.invalid">
+        Enter a valid amount greater than 0
+      </small>
+    </div>
+
+    <button type="submit">Withdraw</button>
+
+  </form>
+</div>

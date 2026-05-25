@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div class="form-container">
+  <h2>Transfer Money</h2>
+  <p class="subtitle">Send money securely to another account</p>
+
+  <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Target Account Number</label>
+      <input
+        type="number"
+        formControlName="targetAccountNumber"
+        placeholder="Enter account number"
+      />
+      <small *ngIf="transferForm.get('targetAccountNumber')?.touched &&
+                    transferForm.get('targetAccountNumber')?.invalid">
+        Enter a valid account number
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Amount</label>
+      <input
+        type="number"
+        formControlName="amount"
+        placeholder="Enter amount"
+      />
+      <small *ngIf="transferForm.get('amount')?.touched &&
+                    transferForm.get('amount')?.invalid">
+        Enter a valid amount greater than 0
+      </small>
+    </div>
+
+    <button type="submit">Transfer</button>
+  </form>
+</div>

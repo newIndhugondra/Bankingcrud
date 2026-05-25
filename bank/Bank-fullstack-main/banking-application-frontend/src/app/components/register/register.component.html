@@ -1,0 +1,74 @@
+<div class="register-container">
+  <h2>Create Bank Account</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" formControlName="username" />
+      <small *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid">
+        Username must be 5–20 characters (letters, numbers, _)
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="email" />
+      <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+        Enter a valid email
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" formControlName="password" />
+      <small *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+        Must contain uppercase, lowercase, number & special character
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Initial Balance</label>
+      <input type="number" formControlName="initialBalance" />
+    </div>
+
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" formControlName="fullName" />
+    </div>
+
+    <div class="form-group">
+      <label>Date of Birth</label>
+      <input type="date" formControlName="dateOfBirth" />
+    </div>
+
+    <div class="form-group">
+      <label>Residential Address</label>
+      <textarea formControlName="residentialAddress"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>ID Type</label>
+      <select formControlName="idType">
+        <option value="">Select</option>
+        <option value="PAN">PAN</option>
+        <option value="AADHAR">AADHAR</option>
+        <option value="PASSPORT">PASSPORT</option>
+        <option value="DRIVING_LICENCE">DRIVING LICENCE</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>ID Number</label>
+      <input type="text" formControlName="idNo" />
+    </div>
+
+    <button type="submit">Register</button>
+
+    <p class="login-link">
+      Already have an account?
+      <span (click)="goToLogin()">Login</span>
+    </p>
+
+  </form>
+</div>

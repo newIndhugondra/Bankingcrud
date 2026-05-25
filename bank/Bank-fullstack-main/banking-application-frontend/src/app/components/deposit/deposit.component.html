@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="form-container">
+  <h2>Deposit Money</h2>
+  <p class="subtitle">Add funds securely to your account</p>
+
+  <form [formGroup]="depositForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Amount</label>
+      <input
+        type="number"
+        formControlName="amount"
+        placeholder="Enter amount"
+      />
+      <small *ngIf="depositForm.get('amount')?.touched && depositForm.get('amount')?.invalid">
+        Enter a valid amount greater than 0
+      </small>
+    </div>
+
+    <button type="submit">Deposit</button>
+
+  </form>
+</div>

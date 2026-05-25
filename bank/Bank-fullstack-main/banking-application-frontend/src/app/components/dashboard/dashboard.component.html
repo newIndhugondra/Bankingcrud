@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard-container">
+  <h2>Welcome to Your Dashboard</h2>
+  <p class="subtitle">Manage your banking activities from one place</p>
+
+  <!-- 🔹 NEW: BALANCE SUMMARY -->
+  <div class="balance-summary">
+    <h3>Current Balance</h3>
+    <p>₹ {{ balance }}</p>
+  </div>
+
+  <!-- 🔹 EXISTING CARD GRID (UNCHANGED) -->
+  <div class="card-container">
+
+    <div class="card" (click)="navigateTo('/deposit')">
+      <h3>Deposit</h3>
+      <p>Add money to your account</p>
+      <span class="action">Go to Deposit →</span>
+    </div>
+
+    <div class="card" (click)="navigateTo('/withdraw')">
+      <h3>Withdraw</h3>
+      <p>Withdraw funds securely</p>
+      <span class="action">Go to Withdraw →</span>
+    </div>
+
+    <div class="card" (click)="navigateTo('/transfer')">
+      <h3>Transfer</h3>
+      <p>Send money to another account</p>
+      <span class="action">Go to Transfer →</span>
+    </div>
+
+    <div class="card" (click)="navigateTo('/history')">
+      <h3>Transaction History</h3>
+      <p>View all your past transactions</p>
+      <span class="action">View History →</span>
+    </div>
+
+  </div>
+
+  <!-- 🔹 NEW: RECENT TRANSACTIONS -->
+  <div class="recent-transactions" *ngIf="recentTransactions.length">
+    <h3>Recent Transactions</h3>
+
+    <div
+      class="recent-item"
+      *ngFor="let tx of recentTransactions"
+    >
+      <span class="type" [ngClass]="tx.type.toLowerCase()">
+        {{ tx.type }}
+      </span>
+
+      <span class="desc">{{ tx.description }}</span>
+
+      <span class="amount">₹ {{ tx.amount }}</span>
+    </div>
+  </div>
+</div>
